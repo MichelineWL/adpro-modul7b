@@ -92,3 +92,11 @@ RwLock memungkinkan beberapa thread membaca secara bersamaan, tetapi membatasi h
 Di Rust, static variables secara default tidak bisa diubah sembarangan untuk menjaga keamanan data (thread safety). Jika kita butuh static yang dapat diubah, kita harus membungkusnya dengan mekanisme sinkronisasi (misalnya Mutex, RwLock, atau DashMap). lazy_static membantu inisialisasi secara lazy di runtime, tetapi mutasi tetap perlu melewati wrapper yang aman untuk thread.
 
 #### Reflection Subscriber-2
+1. Eksplorasi src/lib.rs
+Dengan meninjau lib.rs, kita bisa melihat bagaimana struktur proyek diorganisasi, misalnya bagaimana error handling diatur, bagaimana URL diatur, atau bagaimana pola Singleton diterapkan pada konfigurasi. Ini menambah pemahaman kita soal bagaimana komponen-komponen aplikasi saling berhubungan.
+
+2. Menambahkan Subscriber Baru
+Observer Pattern memudahkan penambahan subscriber baru karena publisher tidak perlu diubah secara signifikan—kita hanya mendaftarkan subscriber baru tersebut. Untuk menambah beberapa instance Main App, kita perlu memastikan data antar instance terkelola dengan baik, terutama jika mereka berbagi sumber daya.
+
+3. Pengalaman Menggunakan Postman
+Postman membantu menguji berbagai endpoint API dengan mudah. Kita bisa menyiapkan collection untuk setiap skenario, menambahkan test scripts, dan menjalankan semuanya secara otomatis. Ini sangat bermanfaat dalam proyek bersama, karena seluruh tim dapat berbagi collection yang sama dan memvalidasi perilaku API secara konsisten.
