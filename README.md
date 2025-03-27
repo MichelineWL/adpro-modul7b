@@ -85,5 +85,10 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Alasan Penggunaan RwLock<>
+RwLock memungkinkan beberapa thread membaca secara bersamaan, tetapi membatasi hanya satu thread yang bisa menulis. Hal ini cocok jika frekuensi operasi baca jauh lebih sering daripada tulis. Dengan Mutex, hanya satu thread yang bisa mengakses data (baca/tulis) pada satu waktu, sehingga dapat menimbulkan bottleneck.
+
+2. Mengapa Static di Rust Berbeda dari Java
+Di Rust, static variables secara default tidak bisa diubah sembarangan untuk menjaga keamanan data (thread safety). Jika kita butuh static yang dapat diubah, kita harus membungkusnya dengan mekanisme sinkronisasi (misalnya Mutex, RwLock, atau DashMap). lazy_static membantu inisialisasi secara lazy di runtime, tetapi mutasi tetap perlu melewati wrapper yang aman untuk thread.
 
 #### Reflection Subscriber-2
